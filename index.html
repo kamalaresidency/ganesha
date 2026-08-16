@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kamala Residency — Shree Ganesha Festival Celebration & Fund Transparency</title>
+  <meta name="description" content="Official Ganesha Festival celebration portal for Kamala Residency residents. Explore live fund collection transparency, celebration schedule, aarti timings, and 270+ festival memories.">
+  <meta name="theme-color" content="#0a0511">
+
+  <!-- Open Graph & Social Sharing -->
+  <meta property="og:title" content="Kamala Residency — Shree Ganesha Festival Celebration">
+  <meta property="og:description" content="Live fund collection transparency sheet, celebration schedule, and photo memories for Kamala Residency residents.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Modern Typography & Sacred Devanagari Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Rozha+One&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Festive Toran Gradient Top Bar -->
+  <div class="festive-toran-bar"></div>
+
+  <!-- Canvas for Falling Flower Petal Physics Simulation -->
+  <canvas id="petalCanvas"></canvas>
+
+  <!-- Ambient Glow & Mandala Background Layer -->
+  <div class="ambient-bg-layer">
+    <div class="ambient-orb orb-1"></div>
+    <div class="ambient-orb orb-2"></div>
+    <div class="ambient-orb orb-3"></div>
+    
+    <!-- Rotating Sacred Mandala Watermark SVG -->
+    <svg class="mandala-watermark" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="250" cy="250" r="230" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6 6"/>
+      <circle cx="250" cy="250" r="180" stroke="#fbbf24" stroke-width="1"/>
+      <circle cx="250" cy="250" r="120" stroke="#f59e0b" stroke-width="1.5"/>
+      <path d="M250 20 L270 120 L250 140 L230 120 Z" fill="#f59e0b" opacity="0.6"/>
+      <path d="M250 480 L270 380 L250 360 L230 380 Z" fill="#f59e0b" opacity="0.6"/>
+      <path d="M20 250 L120 270 L140 250 L120 230 Z" fill="#f59e0b" opacity="0.6"/>
+      <path d="M480 250 L380 270 L360 250 L380 230 Z" fill="#f59e0b" opacity="0.6"/>
+      <circle cx="250" cy="250" r="50" fill="#f59e0b" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="site-navbar">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo">
+        <div class="brand-icon-wrap">
+          <span>🕉️</span>
+        </div>
+        <div class="brand-text">
+          <h1>Kamala Residency</h1>
+          <p>Shree Ganeshotsav</p>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#glimpse" class="nav-link">Memories Glimpse</a></li>
+        <li><a href="#transparency" class="nav-link">Fund Transparency</a></li>
+        <li><a href="#schedule" class="nav-link">Aarti & Schedule</a></li>
+        <li><a href="#gallery" class="nav-link">Photo Gallery</a></li>
+        <li><a href="#community" class="nav-link">Committee</a></li>
+      </ul>
+
+      <!-- Action Tools & CTAs -->
+      <div class="nav-actions">
+        <!-- Flower Shower Toggle -->
+        <button class="btn-icon active" id="togglePetalsBtn" title="Toggle Marigold Flower Petal Shower" aria-label="Toggle Flower Petals">
+          🌸
+        </button>
+
+        <!-- Temple Chime Sound Effect -->
+        <button class="btn-icon" id="toggleAudioBtn" title="Play Sacred Temple Bell Chime" aria-label="Play Temple Chime">
+          🔔
+        </button>
+
+        <!-- Direct CTA to Fund Transparency -->
+        <a href="#transparency" class="btn-festive-cta">
+          <span>📊</span>
+          <span>Fund Sheet</span>
+        </a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <!-- Hero Text Content -->
+        <div class="hero-content">
+          <div class="hero-badge-wrap">
+            <div class="hero-badge">
+              <span>✨</span>
+              <span>100% Resident-Driven & Transparent Celebration</span>
+            </div>
+          </div>
+
+          <h1 class="hero-title">
+            Welcoming <span class="text-gold-gradient">Lord Ganesha</span> With Devotion & Harmony
+          </h1>
+
+          <!-- Sacred Sanskrit Shloka -->
+          <div class="shloka-card">
+            <div class="shloka-sanskrit devanagari-font">
+              वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ ।<br>
+              निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा ॥
+            </div>
+            <div class="shloka-translation">
+              "O Lord of curved trunk and brilliant radiance of millions of suns, remove all obstacles from our lives and bless our residency."
+            </div>
+          </div>
+
+          <p class="hero-description">
+            Welcome to the official celebration portal of <strong>Kamala Residency</strong>. Explore our daily pooja schedule, relive last year's festive memories, and access our live cloud-synced financial ledger for complete community transparency.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#transparency" class="btn-hero-primary">
+              <span>📊</span>
+              <span>View Fund Collection</span>
+            </a>
+            <a href="#glimpse" class="btn-hero-secondary">
+              <span>🎲</span>
+              <span>Random Memory Glimpse</span>
+            </a>
+            <a href="#gallery" class="btn-hero-secondary">
+              <span>📸</span>
+              <span>270+ Gallery</span>
+            </a>
+          </div>
+
+          <!-- Hero Stats Row -->
+          <div class="hero-stats-row">
+            <div class="stat-item">
+              <h3>3 Days</h3>
+              <p>Grand Utsav</p>
+            </div>
+            <div class="stat-item">
+              <h3>276</h3>
+              <p>Photo Memories</p>
+            </div>
+            <div class="stat-item">
+              <h3>100%</h3>
+              <p>Fund Transparency</p>
+            </div>
+            <div class="stat-item">
+              <h3>All Flats</h3>
+              <p>United Community</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Showcase -->
+        <div class="hero-visual-card">
+          <div class="hero-glow-back"></div>
+          <div class="hero-diya-frame">
+            <div class="diya-flame-badge">
+              <span>🪔</span>
+              <span>Shree Ganesha Darshan</span>
+            </div>
+            <div class="hero-main-video-wrap">
+              <video 
+                id="heroMainVideo" 
+                class="hero-main-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline 
+                poster="KR_Ganesha_30_08_25/DSC_0106.JPG"
+                preload="auto">
+                <source src="video/DSC_0106.MOV" type="video/mp4">
+                <source src="video/DSC_0106.MOV" type="video/quicktime">
+                Your browser does not support the video tag.
+              </video>
+
+              <!-- Video Overlay Controls -->
+              <div class="video-overlay-controls">
+                <button class="btn-video-control" id="videoSoundBtn" title="Toggle Audio">
+                  <span id="videoSoundIcon">🔇</span>
+                  <span id="videoSoundText">Unmute</span>
+                </button>
+                <button class="btn-video-control" id="videoPlayPauseBtn" title="Play/Pause Video">
+                  <span id="videoPlayIcon">⏸</span>
+                </button>
+                <button class="btn-video-control" id="videoFullscreenBtn" title="Watch Fullscreen">
+                  <span>⛶</span>
+                </button>
+              </div>
+
+              <div class="hero-photo-tag">
+                <div class="hero-photo-tag-text">
+                  <h4 id="heroVideoTitle">Devotional Pooja & Celebration Video</h4>
+                  <p id="heroVideoDesc">Kamala Residency Ganeshotsav Video</p>
+                </div>
+                <span class="video-live-pill">📹 Video</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: RANDOM MEMORY / GLIMPSE FEATURE ==================== -->
+    <section class="section-padding glimpse-section" id="glimpse">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span>✨</span>
+            <span>Memories from KR_Ganesha_30_08_25</span>
+          </div>
+          <h2 class="section-title">
+            Glimpses of Past <span class="text-gold-gradient">Celebrations</span>
+          </h2>
+          <p class="section-subtitle">
+            Relive the joy, devotion, and vibrant community spirit of our previous year's Ganesha Utsav with random memory snapshots.
+          </p>
+        </div>
+
+        <!-- Glimpse Controller Bar -->
+        <div class="glimpse-controller-bar">
+          <div class="glimpse-status-info">
+            <span>🎲 Random Showcase:</span>
+            <strong id="glimpseCounter">Loading memories...</strong>
+          </div>
+
+          <div class="glimpse-actions">
+            <!-- Auto play toggle -->
+            <button class="btn-toggle-play active" id="toggleGlimpsePlay" title="Toggle automatic memory slide">
+              <span>⏸</span> Auto-Play ON
+            </button>
+
+            <!-- Shuffle Random Button -->
+            <button class="btn-shuffle" id="shuffleGlimpseBtn">
+              <span class="shuffle-dice-icon">🎲</span>
+              <span>Shuffle Memories</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Glimpse Showcase Grid -->
+        <div class="glimpse-grid">
+          <!-- Primary Featured Memory Card -->
+          <div class="glimpse-primary-card">
+            <div class="glimpse-image-holder" id="primaryGlimpseHolder">
+              <img id="primaryGlimpseImg" src="KR_Ganesha_30_08_25/DSC_0067.JPG" alt="Kamala Residency Celebration Memory" />
+              <div class="glimpse-floating-overlay">
+                <span class="glimpse-badge" id="primaryGlimpseTag">Ganeshotsav 2025</span>
+                <button class="glimpse-zoom-btn" id="primaryGlimpseZoom" title="View Fullscreen" aria-label="View Fullscreen">
+                  🔍
+                </button>
+              </div>
+            </div>
+
+            <div class="glimpse-meta-footer">
+              <div class="glimpse-meta-info">
+                <h3 id="primaryGlimpseTitle">Kamala Residency Ganeshotsav 2025</h3>
+                <p>Memories from KR_Ganesha_30_08_25</p>
+              </div>
+              <button class="btn-festive-cta" onclick="document.getElementById('primaryGlimpseZoom').click()">
+                <span>🔍</span> Expand HD
+              </button>
+            </div>
+          </div>
+
+          <!-- Secondary Random Stack -->
+          <div class="glimpse-secondary-stack" id="glimpseSecondaryStack">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: LIVE FUND COLLECTION & TRANSPARENCY ==================== -->
+    <section class="section-padding transparency-section" id="transparency">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span>🛡️</span>
+            <span>100% Resident Transparency</span>
+          </div>
+          <h2 class="section-title">
+            Live Fund Collection & <span class="text-gold-gradient">Accounts Ledger</span>
+          </h2>
+          <p class="section-subtitle">
+            Every single rupee contributed and spent for our Kamala Residency Ganesha Utsav is openly accounted for in real-time.
+          </p>
+        </div>
+
+        <!-- Transparency Highlight Cards -->
+        <div class="transparency-features-grid">
+          <div class="transparency-feature-card">
+            <div class="tf-icon-box">📊</div>
+            <div class="tf-content">
+              <h3>Live Cloud Sync</h3>
+              <p>Directly synced with our live Microsoft Excel sheet on OneDrive. Updates reflect instantly.</p>
+            </div>
+          </div>
+
+          <div class="transparency-feature-card">
+            <div class="tf-icon-box">🧾</div>
+            <div class="tf-content">
+              <h3>Flat-wise Verification</h3>
+              <p>Residents can search their flat number to verify donation entries, receipt numbers, and amounts.</p>
+            </div>
+          </div>
+
+          <div class="transparency-feature-card">
+            <div class="tf-icon-box">🤝</div>
+            <div class="tf-content">
+              <h3>Audited Expenses</h3>
+              <p>Complete itemized breakdown for idol, priest dakshina, flowers, tent, sound, prasad & visarjan.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Excel Dashboard Container -->
+        <div class="excel-dashboard-container" id="excelDashboardContainer">
+          <!-- Mac Window Bar -->
+          <div class="excel-window-header">
+            <div class="excel-window-controls">
+              <span class="win-dot dot-red"></span>
+              <span class="win-dot dot-yellow"></span>
+              <span class="win-dot dot-green"></span>
+            </div>
+
+            <div class="excel-window-title">
+              <span class="excel-tag-icon">📊</span>
+              <span>Kamala_Residency_Ganesha_Accounts_Live.xlsx</span>
+              <div class="excel-sync-badge">
+                <span class="pulse-indicator"></span>
+                <span>Live Connected</span>
+              </div>
+            </div>
+
+            <div class="excel-header-actions">
+              <button class="btn-excel-tool" id="excelReloadBtn" title="Refresh Live Data">
+                <span>🔄</span> Refresh
+              </button>
+              <button class="btn-excel-tool" id="excelFullscreenBtn" title="View Fullscreen">
+                <span>⛶</span> Fullscreen
+              </button>
+              <a href="https://1drv.ms/x/c/fa1de2552ce19d5f/IQTYUEMaO_ptTYWhTQUbT_zmAYSm3CnKbCAm8oCT2LN8Zu0?em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn-excel-tool" 
+                 title="Open in Microsoft Excel Online">
+                <span>↗</span> Open in Excel
+              </a>
+            </div>
+          </div>
+
+          <!-- Embedded OneDrive Excel Iframe -->
+          <div class="excel-iframe-holder">
+            <iframe 
+              id="excelIframe"
+              class="excel-frame"
+              src="https://1drv.ms/x/c/fa1de2552ce19d5f/IQTYUEMaO_ptTYWhTQUbT_zmAYSm3CnKbCAm8oCT2LN8Zu0?em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True" 
+              frameborder="0" 
+              scrolling="yes"
+              title="Kamala Residency Live Fund Collection Excel Sheet">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Resident Guide Box -->
+        <div class="resident-guide-box">
+          <div class="guide-step">
+            <div class="step-num">1</div>
+            <div class="step-info">
+              <h4>Locate Your Flat Number</h4>
+              <p>Use the search or scroll inside the Excel sheet to find your flat and verified contribution.</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-num">2</div>
+            <div class="step-info">
+              <h4>Review Expense Categories</h4>
+              <p>Check the tabulated expenditure for Mandap, Pooja Samagri, Sound, Lighting, and Mahaprasad.</p>
+            </div>
+          </div>
+
+          <div class="guide-step">
+            <div class="step-num">3</div>
+            <div class="step-info">
+              <h4>Queries or Discrepancies?</h4>
+              <p>Contact the resident accounts coordinator or committee members listed in the contact section below.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: EVENT SCHEDULE & AARTI TIMINGS ==================== -->
+    <section class="section-padding schedule-section" id="schedule">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span>📅</span>
+            <span>Celebration Itinerary</span>
+          </div>
+          <h2 class="section-title">
+            Event Schedule & <span class="text-gold-gradient">Aarti Timings</span>
+          </h2>
+          <p class="section-subtitle">
+            Join us for daily morning and evening pooja, cultural events, prasad distributions, and the grand farewell procession.
+          </p>
+        </div>
+
+        <!-- Daily Fixed Aarti Banner -->
+        <div class="aarti-timing-banner">
+          <div class="aarti-banner-title">
+            <div class="aarti-icon">🪔</div>
+            <div>
+              <h3>Daily Sacred Aarti & Darshan Schedule</h3>
+              <p>All Kamala Residency families and children are warmly invited to attend in traditional attire</p>
+            </div>
+          </div>
+
+          <div class="aarti-slots">
+            <div class="aarti-slot">
+              <div class="aarti-slot-name">🌅 Morning Aarti</div>
+              <div class="aarti-slot-time">08:30 AM</div>
+            </div>
+            <div class="aarti-slot">
+              <div class="aarti-slot-name">🌇 Evening Maha Aarti</div>
+              <div class="aarti-slot-time">07:30 PM</div>
+            </div>
+            <div class="aarti-slot">
+              <div class="aarti-slot-name">🍬 Modak & Prasad</div>
+              <div class="aarti-slot-time">08:15 PM</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Schedule Day Filter Tabs -->
+        <div class="schedule-tabs-wrap" style="margin-top: 3rem;">
+          <button class="tab-btn active" data-day="all">All 3 Days</button>
+          <button class="tab-btn" data-day="day1">Day 1: Sthapana</button>
+          <button class="tab-btn" data-day="day2">Day 2: Cultural & Modak</button>
+          <button class="tab-btn" data-day="day3">Day 3: Mahaprasad & Visarjan</button>
+        </div>
+
+        <!-- Schedule Cards Grid -->
+        <div class="schedule-cards-grid">
+          <!-- Day 1 -->
+          <div class="event-card" data-day="day1">
+            <div class="event-card-top">
+              <span class="event-day-pill">Day 1 • Ganesh Chaturthi</span>
+              <span class="event-time-badge">⏰ 09:00 AM Onwards</span>
+            </div>
+            <h3>Ganesha Prathisthapana & Welcome</h3>
+            <p>Welcoming Bappa to Kamala Residency with traditional dhol rhythms, kalash sthapana, and inaugural Vedic pooja.</p>
+            <ul class="event-highlights-list">
+              <li>✨ 09:30 AM — Idol Arrival & Welcome Shobhayatra</li>
+              <li>✨ 11:00 AM — Pranaprathistha & Shodashopachara Pooja</li>
+              <li>✨ 07:30 PM — Evening Maha Aarti with 108 Diyas</li>
+            </ul>
+          </div>
+
+          <!-- Day 2 -->
+          <div class="event-card" data-day="day2">
+            <div class="event-card-top">
+              <span class="event-day-pill">Day 2 • Cultural & Modak Samaroh</span>
+              <span class="event-time-badge">⏰ 05:00 PM - 09:30 PM</span>
+            </div>
+            <h3>Resident Talent Show & 51 Modak Offering</h3>
+            <p>A fun-filled festive evening with drawing & rangoli contests, cultural dance, devotional singing, and Chhappan Bhog offerings.</p>
+            <ul class="event-highlights-list">
+              <li>🎨 05:00 PM — Kids Drawing & Rangoli Competition</li>
+              <li>🎵 06:30 PM — Resident Cultural Performances & Bhajans</li>
+              <li>🍬 08:30 PM — Modak Bhog Offering & Prize Distribution</li>
+            </ul>
+          </div>
+
+          <!-- Day 3 -->
+          <div class="event-card" data-day="day3">
+            <div class="event-card-top">
+              <span class="event-day-pill">Day 3 • Mahaprasad & Visarjan</span>
+              <span class="event-time-badge">⏰ 12:30 PM Onwards</span>
+            </div>
+            <h3>Grand Mahaprasad & Visarjan Shobhayatra</h3>
+            <p>Community feast lunch for all resident families, followed by farewell Uttar Pooja, dhol tasha procession, and eco-friendly immersion.</p>
+            <ul class="event-highlights-list">
+              <li>🍲 12:30 PM — Grand Mahaprasad Lunch for All Residents</li>
+              <li>🙏 05:00 PM — Uttar Pooja & Farewell Maha Aarti</li>
+              <li>🥁 06:30 PM — Dhol Tasha Procession & Eco-Friendly Immersion</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: FULL PHOTO GALLERY (276+ PHOTOS) ==================== -->
+    <section class="section-padding gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span>📸</span>
+            <span id="galleryCountBadge">270+ Celebration Memories</span>
+          </div>
+          <h2 class="section-title">
+            Celebration <span class="text-gold-gradient">Photo Gallery</span>
+          </h2>
+          <p class="section-subtitle">
+            Browse through all memorable moments captured during our Kamala Residency Ganesha Utsav celebrations. Click any photo to view in high resolution.
+          </p>
+        </div>
+
+        <!-- Gallery Controls & Search -->
+        <div class="gallery-controls-bar">
+          <div class="gallery-filters">
+            <span class="section-badge" style="margin-bottom: 0;">📸 All 276 Memories</span>
+          </div>
+
+          <div class="gallery-search-wrap">
+            <span class="gallery-search-icon">🔍</span>
+            <input type="text" id="gallerySearchInput" class="gallery-search-input" placeholder="Search by photo number e.g. 106, DSC..." />
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Dynamically populated from js/gallery-data.js -->
+        </div>
+
+        <!-- Load More Pagination Button -->
+        <div class="gallery-load-more-wrap">
+          <button class="btn-load-more" id="loadMoreGalleryBtn">
+            <span>📂</span>
+            <span>Load More Memories</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION: COMMITTEE & GUIDELINES ==================== -->
+    <section class="section-padding community-section" id="community">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">
+            <span>👥</span>
+            <span>Resident Support & Organizing</span>
+          </div>
+          <h2 class="section-title">
+            Organizing Committee & <span class="text-gold-gradient">Resident Guidelines</span>
+          </h2>
+          <p class="section-subtitle">
+            Meet the resident volunteers managing our celebration and review eco-friendly festival guidelines.
+          </p>
+        </div>
+
+        <div class="community-grid">
+          <!-- Committee Volunteers Card -->
+          <div class="committee-card">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Festival Organizing Team</h3>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">Feel free to reach out to any committee member for volunteering or queries.</p>
+
+            <div class="committee-members-list">
+              <div class="committee-member-row">
+                <div class="member-info">
+                  <h4>Festival General Coordinator</h4>
+                  <p>Kamala Residency Management Committee</p>
+                </div>
+                <span class="member-badge">Overall Lead</span>
+              </div>
+
+              <div class="committee-member-row">
+                <div class="member-info">
+                  <h4>Accounts & Fund Transparency Lead</h4>
+                  <p>Excel Ledger & Receipt Audit Volunteer Team</p>
+                </div>
+                <span class="member-badge">Treasury</span>
+              </div>
+
+              <div class="committee-member-row">
+                <div class="member-info">
+                  <h4>Pooja & Priest Coordination Lead</h4>
+                  <p>Vedic Rituals, Samagri & Daily Aarti Timing</p>
+                </div>
+                <span class="member-badge">Rituals</span>
+              </div>
+
+              <div class="committee-member-row">
+                <div class="member-info">
+                  <h4>Cultural & Prasad Management</h4>
+                  <p>Kids Events, Bhog Distribution & Mahaprasad</p>
+                </div>
+                <span class="member-badge">Events</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Guidelines & Rules Card -->
+          <div class="guidelines-card">
+            <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: #ffffff;">Eco-Friendly Celebration Guidelines</h3>
+            <p style="font-size: 0.85rem; color: var(--text-dim);">Help us keep our celebration green, safe, clean, and joyous for everyone.</p>
+
+            <ul class="rules-list">
+              <li>
+                <span class="rule-icon">🌱</span>
+                <div>
+                  <strong style="color: #ffffff;">100% Eco-Friendly Clay Ganesha:</strong>
+                  <p>Our society strictly adheres to non-toxic natural clay idols with organic turmeric & water-soluble colors.</p>
+                </div>
+              </li>
+
+              <li>
+                <span class="rule-icon">🚫</span>
+                <div>
+                  <strong style="color: #ffffff;">Zero Single-Use Plastic:</strong>
+                  <p>All prasad and meals are served in biodegradable areca leaf plates and eco-friendly compostable cups.</p>
+                </div>
+              </li>
+
+              <li>
+                <span class="rule-icon">🪔</span>
+                <div>
+                  <strong style="color: #ffffff;">Fire & Electrical Safety:</strong>
+                  <p>Aarti diyas and lighting fixtures are monitored by volunteer marshals to ensure child safety.</p>
+                </div>
+              </li>
+
+              <li>
+                <span class="rule-icon">🤝</span>
+                <div>
+                  <strong style="color: #ffffff;">Voluntary Contributions:</strong>
+                  <p>All donations are completely voluntary and openly recorded in our public Excel transparency ledger.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h2 class="text-gold-gradient">Kamala Residency Ganeshotsav</h2>
+          <p>
+            Celebrating unity, culture, and spiritual harmony. May Lord Ganesha shower blessings of wisdom, health, and prosperous living upon every resident family.
+          </p>
+          <div style="margin-top: 1rem; font-size: 0.85rem; color: var(--gold-bright);">
+            Ganpati Bappa Morya! Mangal Murti Morya! 🌺
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#glimpse">Memories Glimpse</a></li>
+            <li><a href="#transparency">Fund Transparency</a></li>
+            <li><a href="#schedule">Aarti Timings</a></li>
+            <li><a href="#gallery">Photo Gallery (276+)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul class="footer-links">
+            <li><a href="https://1drv.ms/x/c/fa1de2552ce19d5f/IQTYUEMaO_ptTYWhTQUbT_zmAYSm3CnKbCAm8oCT2LN8Zu0?em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True" target="_blank" rel="noopener noreferrer">Live Excel Sheet ↗</a></li>
+            <li><a href="#community">Committee Details</a></li>
+            <li><a href="#schedule">Full 3-Day Schedule</a></li>
+            <li><a href="#gallery">Download Photos</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 <strong>Kamala Residency</strong> • All Rights Reserved
+        </div>
+        <div>
+          Hosted seamlessly on <strong>GitHub Pages</strong> • Built with devotion for residents
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== LIGHTBOX MODAL ==================== -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-header">
+      <div class="lightbox-info">
+        <span id="lightboxCounter">Photo 1 of 276</span> • <strong id="lightboxTitle">Ganesha Celebration</strong>
+      </div>
+      <button class="lightbox-close-btn" id="lightboxCloseBtn" title="Close (Esc)" aria-label="Close Lightbox">✕</button>
+    </div>
+
+    <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" title="Previous Photo" aria-label="Previous Photo">❮</button>
+
+    <div class="lightbox-body">
+      <img id="lightboxImg" src="" alt="Celebration Fullscreen View" />
+    </div>
+
+    <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" title="Next Photo" aria-label="Next Photo">❯</button>
+  </div>
+
+  <!-- ==================== FLOATING ACTION CONTROLS ==================== -->
+  <div class="floating-action-bar">
+    <!-- Share Link with Neighbors -->
+    <button class="btn-float" id="shareFestiveBtn" title="Share Website Link" aria-label="Share Website">
+      📤
+    </button>
+    <!-- Scroll to Top -->
+    <button class="btn-float" id="scrollTopBtn" title="Back to Top" aria-label="Back to Top" style="display: none;">
+      ↑
+    </button>
+  </div>
+
+  <!-- ==================== SCRIPTS ==================== -->
+  <!-- 1. Array index of all 276 photos from KR_Ganesha_30_08_25 -->
+  <script src="js/gallery-data.js"></script>
+  <!-- 2. Main Application Interactivity -->
+  <script src="js/app.js"></script>
+</body>
+</html>
