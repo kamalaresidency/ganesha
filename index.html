@@ -327,6 +327,24 @@
           </div>
         </div>
 
+        <!-- Top Quick Action Bar for Mobile & Desktop -->
+        <div class="excel-mobile-actions-bar">
+          <button class="btn-excel-primary" id="excelMobileFullscreenBtn" title="Expand Fullscreen Sheet">
+            <span>⛶</span>
+            <span class="fs-text">Expand / Fullscreen Sheet</span>
+          </button>
+          <a href="https://1drv.ms/x/c/fa1de2552ce19d5f/IQTYUEMaO_ptTYWhTQUbT_zmAYSm3CnKbCAm8oCT2LN8Zu0?em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True" 
+             target="_blank" 
+             rel="noopener noreferrer" 
+             class="btn-excel-secondary" 
+             title="Open Original Sheet in Excel App">
+            <span>↗</span> Open in Excel App
+          </a>
+          <button class="btn-excel-secondary" id="excelMobileReloadBtn" title="Refresh Data">
+            <span>🔄</span> Refresh
+          </button>
+        </div>
+
         <!-- Live Excel Dashboard Container -->
         <div class="excel-dashboard-container" id="excelDashboardContainer">
           <!-- Mac Window Bar -->
@@ -350,7 +368,7 @@
               <button class="btn-excel-tool" id="excelReloadBtn" title="Refresh Live Data">
                 <span>🔄</span> Refresh
               </button>
-              <button class="btn-excel-tool" id="excelFullscreenBtn" title="View Fullscreen">
+              <button class="btn-excel-tool btn-fs-toggle" id="excelFullscreenBtn" title="View Fullscreen">
                 <span>⛶</span> Fullscreen
               </button>
               <a href="https://1drv.ms/x/c/fa1de2552ce19d5f/IQTYUEMaO_ptTYWhTQUbT_zmAYSm3CnKbCAm8oCT2LN8Zu0?em=2&AllowTyping=True&wdHideGridlines=True&wdHideHeaders=True&wdDownloadButton=True&wdInConfigurator=True" 
@@ -374,6 +392,11 @@
               title="Kamala Residency Live Fund Collection Excel Sheet">
             </iframe>
           </div>
+
+          <!-- Fullscreen Floating Exit Button (visible only in fullscreen) -->
+          <button class="btn-excel-exit-fs" id="excelExitFsBtn" title="Close Fullscreen (Back to Page)">
+            ✕ Close Fullscreen
+          </button>
         </div>
 
         <!-- Resident Guide Box -->

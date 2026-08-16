@@ -462,36 +462,59 @@
     openLightbox(state.lightboxIndex + direction);
   }
 
-  // --- 8. Excel Transparency Container Controls ---
+  // --- 8. Excel Transparency Container Controls (Mobile & Desktop) ---
   function initExcelControls() {
-    const fullscreenBtn = document.getElementById('excelFullscreenBtn');
-    const reloadBtn = document.getElementById('excelReloadBtn');
     const container = document.getElementById('excelDashboardContainer');
     const iframe = document.getElementById('excelIframe');
+    const fullscreenBtn = document.getElementById('excelFullscreenBtn');
+    const mobileFullscreenBtn = document.getElementById('excelMobileFullscreenBtn');
+    const exitFsBtn = document.getElementById('excelExitFsBtn');
+    const reloadBtn = document.getElementById('excelReloadBtn');
+    const mobileReloadBtn = document.getElementById('excelMobileReloadBtn');
 
-    if (fullscreenBtn && container) {
-      fullscreenBtn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-          container.requestFullscreen().catch(err => {
-            console.warn('Fullscreen request failed: ', err);
-          });
-          fullscreenBtn.innerHTML = '<span>⛶</span> Exit Fullscreen';
-        } else {
-          document.exitFullscreen();
-          fullscreenBtn.innerHTML = '<span>⛶</span> Fullscreen';
+    function toggleFullscreen() {
+      if (!container) return;
+      const isFs = container.classList.toggle('is-fullscreen-mode');
+
+      if (isFs) {
+        document.body.style.overflow = 'hidden';
+        if (fullscreenBtn) fullscreenBtn.innerHTML = '<span>✕</span> Exit Fullscreen';
+        if (mobileFullscreenBtn) {
+          const textSpan = mobileFullscreenBtn.querySelector('.fs-text');
+          if (textSpan) textSpan.textContent = '✕ Exit Fullscreen';
         }
-      });
+      } else {
+        document.body.style.overflow = '';
+        if (fullscreenBtn) fullscreenBtn.innerHTML = '<span>⛶</span> Fullscreen';
+        if (mobileFullscreenBtn) {
+          const textSpan = mobileFullscreenBtn.querySelector('.fs-text');
+          if (textSpan) textSpan.textContent = 'Expand / Fullscreen Sheet';
+        }
+      }
     }
 
-    if (reloadBtn && iframe) {
-      reloadBtn.addEventListener('click', () => {
-        const currentSrc = iframe.src;
-        iframe.src = '';
-        setTimeout(() => {
-          iframe.src = currentSrc;
-        }, 100);
-      });
+    if (fullscreenBtn) fullscreenBtn.addEventListener('click', toggleFullscreen);
+    if (mobileFullscreenBtn) mobileFullscreenBtn.addEventListener('click', toggleFullscreen);
+    if (exitFsBtn) exitFsBtn.addEventListener('click', toggleFullscreen);
+
+    // Escape key closes fullscreen
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && container && container.classList.contains('is-fullscreen-mode')) {
+        toggleFullscreen();
+      }
+    });
+
+    function reloadExcel() {
+      if (!iframe) return;
+      const currentSrc = iframe.src;
+      iframe.src = '';
+      setTimeout(() => {
+        iframe.src = currentSrc;
+      }, 150);
     }
+
+    if (reloadBtn) reloadBtn.addEventListener('click', reloadExcel);
+    if (mobileReloadBtn) mobileReloadBtn.addEventListener('click', reloadExcel);
   }
 
   // --- 9. Falling Flower Petal Physics Simulation ---

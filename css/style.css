@@ -1056,6 +1056,63 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.4;
 }
 
+/* Top Action Bar for Excel Fund Sheet */
+.excel-mobile-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+  z-index: 10;
+  position: relative;
+}
+
+.btn-excel-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #000000;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-gold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.45);
+  transition: var(--transition-bounce);
+  text-decoration: none;
+}
+
+.btn-excel-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.6);
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+}
+
+.btn-excel-secondary {
+  background: var(--bg-card);
+  color: var(--gold-bright);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.7rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-gold);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-excel-secondary:hover {
+  background: var(--bg-card-hover);
+  color: #ffffff;
+  border-color: var(--gold-bright);
+}
+
 /* Live Excel Dashboard Frame */
 .excel-dashboard-container {
   position: relative;
@@ -1065,6 +1122,60 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(15, 8, 28, 0.9);
   border: 2px solid var(--border-gold);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 50px rgba(245, 158, 11, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Mobile-Friendly Fullscreen Modal View */
+.excel-dashboard-container.is-fullscreen-mode {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999999 !important;
+  border-radius: 0 !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #0a0511 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.excel-dashboard-container.is-fullscreen-mode .excel-iframe-holder {
+  height: calc(100vh - 65px) !important;
+  flex: 1 !important;
+  border-radius: 0 !important;
+}
+
+.excel-dashboard-container.is-fullscreen-mode .btn-excel-exit-fs {
+  display: inline-flex;
+}
+
+/* Floating Exit Fullscreen Button */
+.btn-excel-exit-fs {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  z-index: 1000000;
+  background: #e11d48;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+  transition: var(--transition-fast);
+}
+
+.btn-excel-exit-fs:hover {
+  background: #f43f5e;
+  transform: scale(1.05);
 }
 
 .excel-window-header {
@@ -1915,8 +2026,56 @@ h1, h2, h3, h4, h5, h6 {
     height: 320px;
   }
 
+  .excel-window-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .excel-window-title {
+    font-size: 0.8rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .excel-header-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 0.4rem;
+  }
+
+  .btn-excel-tool {
+    flex: 1;
+    justify-content: center;
+    padding: 0.45rem 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .excel-mobile-actions-bar {
+    gap: 0.6rem;
+  }
+
+  .btn-excel-primary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .btn-excel-secondary {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.8rem;
+    padding: 0.6rem 0.75rem;
+  }
+
   .excel-iframe-holder {
-    height: 480px;
+    height: 520px;
   }
 
   .resident-guide-box {
